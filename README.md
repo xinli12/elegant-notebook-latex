@@ -2,8 +2,6 @@
 
 A professional, customisable LaTeX template for academic and research work. This template provides a clean, modern design with flexible theming options and seamless document styling.
 
-![Elegant Notebook Template](https://via.placeholder.com/800x400?text=Elegant+Notebook+Preview)
-
 ## Features
 
 - **Elegant Design**: Clear typography and balanced layout for academic and technical writing
