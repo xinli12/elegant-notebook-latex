@@ -6,15 +6,15 @@
 % Load theme switching functionality
 \input{config/theme}
 
-% Select your theme - first parameter is font theme, second is color theme
+% Select your theme - first parameter is font theme, second is colour theme
 % Font themes: modern, classic, elegant, academic, scientific, professional, contemporary
-% Color themes: cambridge-blue, cambridge-classic, cambridge-forest, cambridge-sunset, cambridge-river,
+% Colour themes: cambridge-blue, cambridge-classic, cambridge-forest, cambridge-sunset, cambridge-river,
 %              oxford-blue, oxford-mist, oxford-monochrome, summer-skies, aurora-skies, 
 %              twilight-skies, midnight-skies, vintage-rose, emerald, royal-purple, arctic, autumn
 \usetheme{modern}{cambridge-blue}
 
 % Load the Elegant Notebook settings
-% To change font theme, edit the \fonttheme value in config/settings.tex
+% The font theme is set by the \usetheme command above
 \input{config/settings}
 
 % Starting the document
@@ -53,8 +53,12 @@ To use this template effectively:
 
 \begin{enumerate}
     \item Edit \inlinecode{config/metadata.tex} to customise your document title, author, institution, etc.
-    \item Choose a colour theme in \inlinecode{config/colours.tex} or use the default
-    \item Select a font theme by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex}
+    \item Choose a theme with the \inlinecode{\\usetheme\{font-theme\}\{colour-theme\}} command near the top of the document
+    \item Or individually customise:
+    \begin{itemize}
+        \item Choose a colour theme in \inlinecode{config/colours.tex} or use the default
+        \item Select a font theme by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex}
+    \end{itemize}
     \item Start writing your content in this file, using the provided environments and styles
     \item Compile using the included scripts (see Section \ref{sec:compilation})
 \end{enumerate}
@@ -173,7 +177,7 @@ This section showcases the typography of the template, demonstrating the differe
 
 \subsection{Available Font Themes}
 
-The template includes seven professionally designed font themes that you can select by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex}:
+The template includes seven professionally designed font themes that you can select using the \inlinecode{\\usetheme} command:
 
 \begin{center}
 \large\textbf{Current Font Theme: \textcolor{accentcolor}{\fonttheme}}
@@ -189,7 +193,7 @@ The template includes seven professionally designed font themes that you can sel
     \item \textbf{contemporary} - Modern Fira Sans with matching mathematics support
 \end{itemize}
 
-You can preview different themes by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex} and recompiling.
+You can preview different themes by changing the font and colour theme in the \inlinecode{\\usetheme\{font-theme\}\{colour-theme\}} command near the top of this document and recompiling.
 
 \subsection{Text Formatting}
 
@@ -233,22 +237,15 @@ The template includes the following themes:
         \item \textbf{Midnight Skies} - Deep midnight blue with starlight accents
         \item \textbf{Aurora Skies} - Northern blue with aurora green and purple
     \end{itemize}
-    \item \textbf{Other themes}:
-    \begin{itemize}
-        \item \textbf{Vintage Rose} - Dusty rose with muted berry and peach highlights
-        \item \textbf{Emerald} - Rich emerald green with ocean blue and golden accents
-        \item \textbf{Royal Purple} - Royal purple with gold and crimson accents
-        \item \textbf{Arctic} - Arctic blue with ice blue highlights
-        \item \textbf{Autumn} - Warm sienna and burnt orange tones with cream backgrounds
-    \end{itemize}
+    \item \textbf{Other themes}: \textbf{vintage-rose}, \textbf{emerald}, \textbf{royal-purple}, \textbf{arctic}, \textbf{autumn}
 \end{itemize}
 
 \subsection{One-Step Theme Switching}
 The template now features a simplified theme switching system. To change both font and colour themes at once, use the \inlinecode{\\usetheme} command near the top of your main document:
 
 \begin{lstlisting}[language=TeX, caption={Using the theme switcher command}, label={lst:themeswitcher}]
-% Select your theme - first parameter is font theme, second is color theme
-\usetheme{font-theme}{color-theme}
+% Select your theme - first parameter is font theme, second is colour theme
+\usetheme{font-theme}{colour-theme}
 
 % Example: Modern fonts with Oxford Blue theme
 \usetheme{modern}{oxford-blue}
@@ -448,6 +445,7 @@ config/                 # Configuration files
     colours.tex         # Colour themes
     metadata.tex        # Document metadata
     settings.tex        # Package imports and settings
+    theme.tex           # Theme switching functionality
     title-page.tex      # Title page layout
 \end{lstlisting}
 
