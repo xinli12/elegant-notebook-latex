@@ -1,0 +1,67 @@
+% Theme Testing Document
+% This document demonstrates the theme switching functionality
+
+\documentclass[a4paper,11pt]{article}
+
+% Load theme switching functionality
+\input{config/theme}
+
+% Uncomment one of these theme combinations to test
+\usetheme{modern}{cambridge-blue}
+%\usetheme{elegant}{cambridge-classic}
+%\usetheme{classic}{oxford-blue}
+%\usetheme{academic}{vintage-rose}
+%\usetheme{scientific}{emerald}
+%\usetheme{professional}{royal-purple}
+%\usetheme{contemporary}{summer-skies}
+
+% Load the Elegant Notebook settings
+\input{config/settings}
+
+% Starting the document
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Theme Showcase}\\[0.5cm]
+    \large Current Font Theme: \textbf{\textcolor{accentcolor}{\fonttheme}}\\
+    Current Color Theme: \textbf{\textcolor{maincolor}{\activetheme}}
+\end{center}
+
+\section{Typography Sample}
+
+This document demonstrates the current theme. Here's a sample of regular text with \textbf{bold text}, \textit{italic text}, and \texttt{monospaced text}.
+
+\subsection{Mathematics Sample}
+$$E = mc^2 \quad \text{and} \quad \sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$
+
+\subsection{Code Sample}
+\begin{lstlisting}[language=Python]
+def hello_world():
+    print("Hello, World!")
+    return True
+
+# Call the function
+result = hello_world()
+\end{lstlisting}
+
+\section{Color Samples}
+
+\begin{itemize}
+    \item Main Color: \textcolor{maincolor}{$\blacksquare\blacksquare\blacksquare\blacksquare\blacksquare$}
+    \item Accent Color: \textcolor{accentcolor}{$\blacksquare\blacksquare\blacksquare\blacksquare\blacksquare$}
+    \item Highlight Color: \textcolor{highlightcolor}{$\blacksquare\blacksquare\blacksquare\blacksquare\blacksquare$}
+\end{itemize}
+
+\subsection{Box Samples}
+
+Inline code: \inlinecode{print("Hello World")}
+
+\begin{notetbox}
+This is a note box that uses the main color.
+\end{notetbox}
+
+\begin{exampletbox}
+This is an example box that uses the accent color.
+\end{exampletbox}
+
+\end{document} 

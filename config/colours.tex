@@ -1,0 +1,260 @@
+% Elegant Notebook - Colour Scheme
+% This file defines the colour scheme for the notebook
+% Modify these colours to customise the appearance
+
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{etoolbox}
+
+% -----------------------------------------------------
+% THEME SELECTION
+% -----------------------------------------------------
+% The theme can be selected using \usetheme{font-theme}{color-theme}
+% Set a default if not already defined
+\providecommand{\activetheme}{cambridge-blue}
+
+% -----------------------------------------------------
+% THEME DEFINITIONS
+% -----------------------------------------------------
+
+% --- COLOUR THEME: CAMBRIDGE BLUE (DEFAULT) ---
+\ifx\activetheme\undefined\def\activetheme{cambridge-blue}\fi
+\ifdefstring{\activetheme}{cambridge-blue}{%
+    % Main theme colours - Official Cambridge Blue (Pantone 557 C)
+    \definecolor{maincolor}{RGB}{133,176,154}     % Primary colour (Official Cambridge Blue)
+    \definecolor{accentcolor}{RGB}{90,140,115}    % Secondary colour (Darker variant)
+    \definecolor{highlightcolor}{RGB}{230,126,34} % Accent colour (Orange) for emphasis
+
+    % Auxiliary colours
+    \definecolor{codebg}{RGB}{245,250,247}        % Light background for code
+    \definecolor{codefg}{RGB}{45,75,60}           % Darker foreground for code
+    \definecolor{softgray}{RGB}{190,210,200}      % Utility grey colour
+    \definecolor{titlepagebg}{RGB}{235,245,240}   % Soft background for title page
+    \definecolor{inlinecodebg}{RGB}{235,245,240}  % Lighter green-blue background for inline code
+    \definecolor{inlinecodefg}{RGB}{0,105,85}     % Slightly darker teal for inline code
+}{}
+
+% --- THEME: CAMBRIDGE CLASSIC ---
+\ifdefstring{\activetheme}{cambridge-classic}{%
+    \definecolor{maincolor}{RGB}{133,176,154}     % Official Cambridge Blue
+    \definecolor{accentcolor}{RGB}{64,98,125}     % Cambridge Dark Blue
+    \definecolor{highlightcolor}{RGB}{210,180,100}% Cambridge Gold
+    \definecolor{codebg}{RGB}{245,248,245}        % Light background for code
+    \definecolor{codefg}{RGB}{40,65,80}           % Dark blue-tinted code text
+    \definecolor{softgray}{RGB}{180,195,190}      % Blue-green tinted grey
+    \definecolor{titlepagebg}{RGB}{235,245,240}   % Soft blue-green background
+    \definecolor{inlinecodebg}{RGB}{235,245,242}  % Light blue-green background for inline code
+    \definecolor{inlinecodefg}{RGB}{50,90,115}    % Cambridge dark blue for inline code
+}{}
+
+% --- THEME: CAMBRIDGE FOREST ---
+\ifdefstring{\activetheme}{cambridge-forest}{%
+    \definecolor{maincolor}{RGB}{133,176,154}     % Official Cambridge Blue
+    \definecolor{accentcolor}{RGB}{65,105,75}     % Deep Forest Green
+    \definecolor{highlightcolor}{RGB}{205,170,80} % Autumn Gold
+    \definecolor{codebg}{RGB}{245,250,245}        % Light forest-tinted background
+    \definecolor{codefg}{RGB}{35,70,45}           % Dark forest green text
+    \definecolor{softgray}{RGB}{185,200,185}      % Green-tinted grey
+    \definecolor{titlepagebg}{RGB}{240,248,242}   % Soft forest-tinted background
+    \definecolor{inlinecodebg}{RGB}{235,245,235}  % Light forest green background for inline code
+    \definecolor{inlinecodefg}{RGB}{45,90,55}     % Forest green for inline code
+}{}
+
+% --- THEME: CAMBRIDGE SUNSET ---
+\ifdefstring{\activetheme}{cambridge-sunset}{%
+    \definecolor{maincolor}{RGB}{133,176,154}     % Official Cambridge Blue
+    \definecolor{accentcolor}{RGB}{175,95,65}     % Sunset Orange
+    \definecolor{highlightcolor}{RGB}{230,180,60} % Golden Sunset
+    \definecolor{codebg}{RGB}{250,248,245}        % Warm light background
+    \definecolor{codefg}{RGB}{60,60,50}           % Warm dark text
+    \definecolor{softgray}{RGB}{200,195,185}      % Warm-tinted grey
+    \definecolor{titlepagebg}{RGB}{245,245,240}   % Soft warm background
+    \definecolor{inlinecodebg}{RGB}{248,245,240}  % Warm cream background for inline code
+    \definecolor{inlinecodefg}{RGB}{160,80,50}    % Sunset orange for inline code
+}{}
+
+% --- THEME: CAMBRIDGE RIVER ---
+\ifdefstring{\activetheme}{cambridge-river}{%
+    \definecolor{maincolor}{RGB}{133,176,154}     % Official Cambridge Blue
+    \definecolor{accentcolor}{RGB}{80,130,170}    % River Blue
+    \definecolor{highlightcolor}{RGB}{180,210,200}% River Mist
+    \definecolor{codebg}{RGB}{240,245,250}        % Cool blue-tinted background
+    \definecolor{codefg}{RGB}{40,70,105}          % Deep blue text
+    \definecolor{softgray}{RGB}{185,195,205}      % Blue-tinted grey
+    \definecolor{titlepagebg}{RGB}{235,242,248}   % Cool light blue background
+    \definecolor{inlinecodebg}{RGB}{235,240,248}  % Light blue background for inline code
+    \definecolor{inlinecodefg}{RGB}{60,110,150}   % River blue for inline code
+}{}
+
+% --- THEME: OXFORD BLUE ---
+\ifdefstring{\activetheme}{oxford-blue}{%
+    \definecolor{maincolor}{RGB}{0,33,71}        % Oxford Blue
+    \definecolor{accentcolor}{RGB}{140,45,25}    % Oxford Red
+    \definecolor{highlightcolor}{RGB}{255,205,0} % Gold accent
+    \definecolor{codebg}{RGB}{240,240,245}       % Light blue-tinted code background
+    \definecolor{codefg}{RGB}{30,30,60}          % Dark blue code foreground
+    \definecolor{softgray}{RGB}{190,190,200}     % Blue-tinted grey
+    \definecolor{titlepagebg}{RGB}{230,235,245}  % Soft blue background
+    \definecolor{inlinecodebg}{RGB}{230,235,245} % Slightly richer blue background for inline code
+    \definecolor{inlinecodefg}{RGB}{110,30,20}   % Oxford red for inline code text (using accent colour)
+}{}
+
+% --- THEME: OXFORD MIST ---
+\ifdefstring{\activetheme}{oxford-mist}{%
+    \definecolor{maincolor}{RGB}{0,33,71}         % Oxford Blue
+    \definecolor{accentcolor}{RGB}{100,100,130}   % Dusty Blue
+    \definecolor{highlightcolor}{RGB}{150,150,170}% Mist Lavender
+    \definecolor{codebg}{RGB}{245,245,250}        % Cloudy background
+    \definecolor{codefg}{RGB}{40,40,60}           % Slate navy
+    \definecolor{softgray}{RGB}{200,200,210}      % Misty grey
+    \definecolor{titlepagebg}{RGB}{235,240,245}   % Pale bluish white
+    \definecolor{inlinecodebg}{RGB}{235,235,245}  % Richer misty blue for inline code
+    \definecolor{inlinecodefg}{RGB}{80,80,120}    % Dusty blue for inline code (from accent)
+}{}
+
+% --- THEME: OXFORD MONOCHROME ---
+\ifdefstring{\activetheme}{oxford-monochrome}{%
+    \definecolor{maincolor}{RGB}{0,33,71}         % Oxford Blue
+    \definecolor{accentcolor}{RGB}{50,50,70}      % Charcoal Blue
+    \definecolor{highlightcolor}{RGB}{90,90,120}  % Subtle Violet
+    \definecolor{codebg}{RGB}{235,235,240}        % Light grey-blue
+    \definecolor{codefg}{RGB}{20,30,50}           % Deep navy
+    \definecolor{softgray}{RGB}{180,180,190}      % Cool grey
+    \definecolor{titlepagebg}{RGB}{225,230,240}   % Very light blue-grey
+    \definecolor{inlinecodebg}{RGB}{220,220,235}  % More saturated blue-grey for inline code
+    \definecolor{inlinecodefg}{RGB}{40,40,65}     % Deeper charcoal for inline code
+}{}
+
+% --- THEME: SUMMER SKIES ---
+\ifdefstring{\activetheme}{summer-skies}{%
+    \definecolor{maincolor}{RGB}{85,150,205}      % Sky Blue
+    \definecolor{accentcolor}{RGB}{55,120,175}    % Deeper Sky Blue
+    \definecolor{highlightcolor}{RGB}{240,210,80} % Sunshine Yellow
+    \definecolor{codebg}{RGB}{240,248,255}        % Pale sky background
+    \definecolor{codefg}{RGB}{30,75,120}          % Deep sky blue text
+    \definecolor{softgray}{RGB}{195,210,225}      % Sky-tinted grey
+    \definecolor{titlepagebg}{RGB}{235,245,255}   % Soft sky background
+    \definecolor{inlinecodebg}{RGB}{230,240,255}  % Light sky blue background for inline code
+    \definecolor{inlinecodefg}{RGB}{40,105,160}   % Sky blue for inline code
+}{}
+
+% --- THEME: AURORA SKIES ---
+\ifdefstring{\activetheme}{aurora-skies}{%
+    \definecolor{maincolor}{RGB}{60,125,150}      % Northern Blue
+    \definecolor{accentcolor}{RGB}{100,170,120}   % Aurora Green
+    \definecolor{highlightcolor}{RGB}{180,140,200}% Aurora Purple
+    \definecolor{codebg}{RGB}{240,248,248}        % Cold sky background
+    \definecolor{codefg}{RGB}{40,85,100}          % Deep northern blue text
+    \definecolor{softgray}{RGB}{185,200,205}      % Northern-tinted grey
+    \definecolor{titlepagebg}{RGB}{235,245,245}   % Soft northern sky background
+    \definecolor{inlinecodebg}{RGB}{235,245,240}  % Light aurora background for inline code
+    \definecolor{inlinecodefg}{RGB}{80,140,100}   % Aurora green for inline code
+}{}
+
+% --- THEME: TWILIGHT SKIES ---
+\ifdefstring{\activetheme}{twilight-skies}{%
+    \definecolor{maincolor}{RGB}{90,100,160}      % Twilight Blue
+    \definecolor{accentcolor}{RGB}{150,100,150}   % Twilight Purple
+    \definecolor{highlightcolor}{RGB}{230,180,140}% Sunset Gold
+    \definecolor{codebg}{RGB}{242,242,250}        % Cool evening background
+    \definecolor{codefg}{RGB}{60,60,100}          % Deep twilight text
+    \definecolor{softgray}{RGB}{190,190,210}      % Twilight-tinted grey
+    \definecolor{titlepagebg}{RGB}{235,235,245}   % Soft twilight background
+    \definecolor{inlinecodebg}{RGB}{235,230,245}  % Light twilight background for inline code
+    \definecolor{inlinecodefg}{RGB}{130,85,135}   % Twilight purple for inline code
+}{}
+
+% --- THEME: MIDNIGHT SKIES ---
+\ifdefstring{\activetheme}{midnight-skies}{%
+    \definecolor{maincolor}{RGB}{45,60,110}      % Midnight Blue
+    \definecolor{accentcolor}{RGB}{90,95,145}    % Softer Midnight Blue
+    \definecolor{highlightcolor}{RGB}{180,185,220} % Starlight Blue
+    \definecolor{codebg}{RGB}{240,240,248}       % Deep night sky background
+    \definecolor{codefg}{RGB}{35,45,85}          % Deep midnight text
+    \definecolor{softgray}{RGB}{180,180,200}     % Night-tinted grey
+    \definecolor{titlepagebg}{RGB}{232,232,242}  % Soft midnight background
+    \definecolor{inlinecodebg}{RGB}{230,230,245} % Light midnight background for inline code
+    \definecolor{inlinecodefg}{RGB}{70,80,130}   % Midnight blue for inline code
+}{}
+
+% --- THEME: VINTAGE ROSE ---
+\ifdefstring{\activetheme}{vintage-rose}{%
+    \definecolor{maincolor}{RGB}{196,146,151}     % Dusty Rose (Main colour)
+    \definecolor{accentcolor}{RGB}{156,110,115}   % Muted Berry (Secondary colour)
+    \definecolor{highlightcolor}{RGB}{242,206,184}% Pale Peach (Highlight)
+    \definecolor{codebg}{RGB}{253,248,249}        % Light Pinkish Cream (Code background)
+    \definecolor{codefg}{RGB}{105,73,77}          % Brownish Purple (Code foreground)
+    \definecolor{softgray}{RGB}{207,192,194}      % Rose-tinted Grey (Utility grey)
+    \definecolor{titlepagebg}{RGB}{249,240,241}   % Soft Rose White (Title page background)
+    \definecolor{inlinecodebg}{RGB}{248,237,240}  % Deeper rose tint for inline code
+    \definecolor{inlinecodefg}{RGB}{140,90,95}    % Richer berry tone for inline code
+}{}
+
+% --- THEME: EMERALD ---
+\ifdefstring{\activetheme}{emerald}{%
+    \definecolor{maincolor}{RGB}{0,112,74}        % Emerald Green
+    \definecolor{accentcolor}{RGB}{52,86,125}     % Ocean Blue
+    \definecolor{highlightcolor}{RGB}{237,169,33} % Golden Yellow
+    \definecolor{codebg}{RGB}{240,248,245}        % Light green-tinted code background
+    \definecolor{codefg}{RGB}{20,60,40}           % Dark green code foreground
+    \definecolor{softgray}{RGB}{180,200,190}      % Green-tinted grey
+    \definecolor{titlepagebg}{RGB}{230,245,240}   % Soft green background
+    \definecolor{inlinecodebg}{RGB}{232,245,238}  % Richer emerald tint for inline code
+    \definecolor{inlinecodefg}{RGB}{0,90,60}      % Deep emerald for inline code text
+}{}
+
+% --- THEME: ROYAL PURPLE ---
+\ifdefstring{\activetheme}{royal-purple}{%
+    \definecolor{maincolor}{RGB}{76,40,130}       % Royal Purple
+    \definecolor{accentcolor}{RGB}{212,175,55}    % Gold
+    \definecolor{highlightcolor}{RGB}{220,20,60}  % Crimson
+    \definecolor{codebg}{RGB}{245,240,255}        % Light purple background
+    \definecolor{codefg}{RGB}{50,30,80}           % Dark purple foreground
+    \definecolor{softgray}{RGB}{200,190,210}      % Purple-tinted grey
+    \definecolor{titlepagebg}{RGB}{240,235,250}   % Soft purple background
+    \definecolor{inlinecodebg}{RGB}{235,230,250}  % Richer purple for inline code
+    \definecolor{inlinecodefg}{RGB}{90,50,150}    % Deeper royal purple for inline code
+}{}
+
+% --- THEME: ARCTIC ---
+\ifdefstring{\activetheme}{arctic}{%
+    \definecolor{maincolor}{RGB}{64,103,129}      % Arctic Blue
+    \definecolor{accentcolor}{RGB}{25,64,86}      % Deep Arctic
+    \definecolor{highlightcolor}{RGB}{180,210,220}% Ice Blue
+    \definecolor{codebg}{RGB}{235,245,250}        % Snow White
+    \definecolor{codefg}{RGB}{40,60,80}           % Midnight Blue
+    \definecolor{softgray}{RGB}{190,205,215}      % Glacier Grey
+    \definecolor{titlepagebg}{RGB}{230,240,245}   % Frost White
+    \definecolor{inlinecodebg}{RGB}{225,238,248}  % Deeper ice blue for inline code
+    \definecolor{inlinecodefg}{RGB}{25,80,105}    % Richer arctic blue for inline code
+}{}
+
+% --- THEME: AUTUMN ---
+\ifdefstring{\activetheme}{autumn}{%
+    \definecolor{maincolor}{RGB}{165,82,42}       % Sienna Brown
+    \definecolor{accentcolor}{RGB}{205,133,63}    % Peru
+    \definecolor{highlightcolor}{RGB}{220,105,30} % Burnt Orange
+    \definecolor{codebg}{RGB}{252,248,240}        % Cream background
+    \definecolor{codefg}{RGB}{80,40,20}           % Dark Brown foreground
+    \definecolor{softgray}{RGB}{210,200,180}      % Beige Grey
+    \definecolor{titlepagebg}{RGB}{250,245,235}   % Pale Cream
+    \definecolor{inlinecodebg}{RGB}{248,242,233}  % Richer autumn gold for inline code
+    \definecolor{inlinecodefg}{RGB}{170,90,45}    % Deeper autumn tone for inline code
+}{}
+
+% -----------------------------------------------------
+% CUSTOM THEME 
+% -----------------------------------------------------
+% Create your own theme by adding a new selection block:
+%
+% \ifdefstring{\activetheme}{your-theme-name}{%
+%     \definecolor{maincolor}{RGB}{0,0,0}           % Primary colour
+%     \definecolor{accentcolor}{RGB}{0,0,0}         % Secondary colour
+%     \definecolor{highlightcolor}{RGB}{0,0,0}      % Accent colour for emphasis
+%     \definecolor{codebg}{RGB}{0,0,0}              % Background for code blocks
+%     \definecolor{codefg}{RGB}{0,0,0}              % Text for code blocks
+%     \definecolor{softgray}{RGB}{0,0,0}            % Utility grey colour
+%     \definecolor{titlepagebg}{RGB}{0,0,0}         % Background for title page
+%     \definecolor{inlinecodebg}{RGB}{0,0,0}        % Background for inline code
+%     \definecolor{inlinecodefg}{RGB}{0,0,0}        % Text colour for inline code
+% }{}

@@ -1,0 +1,488 @@
+% Elegant Notebook Template
+% A professional LaTeX template with customisable settings for academic and research work
+
+\documentclass[a4paper,11pt]{article}
+
+% Load theme switching functionality
+\input{config/theme}
+
+% Select your theme - first parameter is font theme, second is color theme
+% Font themes: modern, classic, elegant, academic, scientific, professional, contemporary
+% Color themes: cambridge-blue, cambridge-classic, cambridge-forest, cambridge-sunset, cambridge-river,
+%              oxford-blue, oxford-mist, oxford-monochrome, summer-skies, aurora-skies, 
+%              twilight-skies, midnight-skies, vintage-rose, emerald, royal-purple, arctic, autumn
+\usetheme{modern}{cambridge-blue}
+
+% Load the Elegant Notebook settings
+% To change font theme, edit the \fonttheme value in config/settings.tex
+\input{config/settings}
+
+% Starting the document
+\begin{document}
+
+% Generate the title page
+\input{config/title-page}
+
+% Adding a table of contents
+\tableofcontents
+\newpage
+
+% Section: Introduction
+\section{Introduction}
+Welcome to the Elegant Notebook LaTeX template. This template is designed to create beautiful, professional-looking documents with minimal effort. It features consistent styling, thoughtful typography, and useful environments for academic and technical writing.
+
+This section demonstrates the basic typography and layout of the template, including:
+
+\begin{itemize}
+    \item Regular paragraphs with optimised line spacing and margins
+    \item \textbf{Bold text} for emphasis and \textit{italic text} for foreign terms
+    \item Hyperlinks like \href{https://www.latex-project.org/}{LaTeX Project}
+    \item Mathematical expressions: $E = mc^2$ and $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$
+\end{itemize}
+
+\subsection{Objectives}
+\begin{itemize}
+    \item Organise notes in a professional and structured format
+    \item Include mathematical equations, code, and references seamlessly
+    \item Provide reusable environments for notes and examples
+\end{itemize}
+
+% Section: Getting Started
+\section{Getting Started}
+To use this template effectively:
+
+\begin{enumerate}
+    \item Edit \inlinecode{config/metadata.tex} to customise your document title, author, institution, etc.
+    \item Choose a colour theme in \inlinecode{config/colours.tex} or use the default
+    \item Select a font theme by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex}
+    \item Start writing your content in this file, using the provided environments and styles
+    \item Compile using the included scripts (see Section \ref{sec:compilation})
+\end{enumerate}
+
+\subsection{Compilation}
+\label{sec:compilation}
+For basic compilation without bibliography processing:
+
+\begin{lstlisting}[language=bash]
+./simple-compile.sh
+\end{lstlisting}
+
+For full compilation with bibliography support (requires \inlinecode{biber}):
+
+\begin{lstlisting}[language=bash]
+./compile.sh
+\end{lstlisting}
+
+% Section: Template Features
+\section{Template Features}
+The template includes several features to make your document look professional:
+
+\begin{itemize}
+    \item \textbf{Consistent styling} for headings, lists, and other elements
+    \item \textbf{Custom colour schemes} that you can easily modify
+    \item \textbf{Font themes} with professionally curated typography pairings
+    \item \textbf{Styled boxes} for notes, examples, and other content
+    \item \textbf{Code listings} with syntax highlighting
+    \item \textbf{Mathematical support} through AMS-LaTeX
+    \item \textbf{Bibliography management} with BibLaTeX
+\end{itemize}
+
+\subsection{Custom Box Environments}
+The template provides several custom box environments for different purposes:
+
+\subsubsection{Note Boxes}
+Note boxes can be used to highlight important information:
+
+\begin{notetbox}
+    Important information goes here. 
+    
+    Multiple paragraphs are supported. Note boxes are perfect for emphasising key points, warnings, or special instructions.
+\end{notetbox}
+
+\subsubsection{Example Boxes}
+Example boxes are meant for demonstrating concepts:
+
+\begin{exampletbox}
+    This is an example box.
+    
+    It uses the accent colour from your selected theme.
+    
+    You can include mathematics: $E = mc^2$
+\end{exampletbox}
+
+\subsection{Mathematics Support}
+The template provides excellent support for mathematical notation:
+
+\begin{align}
+    f(x) &= x^2 - 2x + 1 \\
+    f'(x) &= 2x - 2
+\end{align}
+
+Inline equations like $\sum_{i=1}^n x_i^2 = x_1^2 + x_2^2 + \dots + x_n^2$ are also well-supported.
+
+\begin{notetbox}
+    The summation formula above is useful for calculating the sum of squares in statistical analyses.
+
+    Note how mathematical expressions are rendered clearly both inline and in displayed form.
+\end{notetbox}
+
+\subsection{Code Listings}
+The template provides support for code listings with syntax highlighting:
+
+\begin{lstlisting}[language=Python, caption={Simple Python function}, label={lst:factorial}]
+def factorial(n):
+    """Calculate the factorial of n."""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+        
+# Calculate factorial of 5
+result = factorial(5)
+print(f"Factorial of 5 is {result}")
+\end{lstlisting}
+
+You can also use \inlinecode{inline code} for short snippets within text.
+
+For data analysis examples:
+
+\begin{lstlisting}[language=Python, caption={Python script for data generation}, label={lst:data}]
+import numpy as np
+
+# Generate random data
+def generate_data(size=100):
+    data = np.random.randn(size) # Generate random data
+    mean_val = np.mean(data)
+    print(f"Mean: {mean_val:.2f}") # Print the mean
+    return data
+
+my_data = generate_data()
+string_example = "This is a string in Python."
+\end{lstlisting}
+
+\begin{exampletbox}
+    The above code (Listing \ref{lst:data}) demonstrates random data generation using \inlinecode{numpy}.
+
+    Adjust the sample size as needed. The styling of the code box is automatically determined by the active colour theme.
+\end{exampletbox}
+
+% Section: Typography Examples
+\section{Typography Examples}
+
+This section showcases the typography of the template, demonstrating the different elements and their styling.
+
+\subsection{Available Font Themes}
+
+The template includes seven professionally designed font themes that you can select by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex}:
+
+\begin{center}
+\large\textbf{Current Font Theme: \textcolor{accentcolor}{\fonttheme}}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{modern} - Contemporary look with Charter and Bera Sans (default)
+    \item \textbf{classic} - Traditional academic style with Palatino and TeX Gyre Heros
+    \item \textbf{elegant} - Refined style with EB Garamond and Source Sans Pro
+    \item \textbf{academic} - Cohesive Libertinus family for academic papers
+    \item \textbf{scientific} - STIX Two and Cabin optimised for scientific content
+    \item \textbf{professional} - Enhanced Palatino clone with Source Sans Pro for a business look
+    \item \textbf{contemporary} - Modern Fira Sans with matching mathematics support
+\end{itemize}
+
+You can preview different themes by changing the \inlinecode{\\fonttheme} value in \inlinecode{config/settings.tex} and recompiling.
+
+\subsection{Text Formatting}
+
+Here are examples of text formatting available in the template:
+
+\begin{itemize}
+    \item Normal text in the main body font
+    \item \textbf{Bold text} for emphasis
+    \item \textit{Italic text} for foreign terms or titles
+    \item \texttt{Monospace text} for code or technical terms
+    \item \textsf{Sans-serif text} for UI elements or headings
+    \item \textcolor{accentcolor}{Coloured text} using the accent colour
+    \item \textcolor{highlightcolor}{Highlighted text} using the highlight colour
+\end{itemize}
+
+% Section: Custom Themes
+\section{Custom Themes}
+The template comes with several built-in colour themes, and you can also create your own.
+
+\subsection{Built-in Themes}
+The template includes the following themes:
+\begin{itemize}
+    \item \textbf{Cambridge Blue} (default) - The official University of Cambridge blue (Pantone 557 C)
+    \item \textbf{Cambridge} variants:
+    \begin{itemize}
+        \item \textbf{Cambridge Classic} - Cambridge blue with dark blue and gold accents
+        \item \textbf{Cambridge Forest} - Cambridge blue with forest green and autumn gold accents
+        \item \textbf{Cambridge Sunset} - Cambridge blue with sunset orange and golden accents
+        \item \textbf{Cambridge River} - Cambridge blue with river blue and mist accents
+    \end{itemize}
+    \item \textbf{Oxford} themes:
+    \begin{itemize}
+        \item \textbf{Oxford Blue} - Deep Oxford blue with Oxford red and gold accents
+        \item \textbf{Oxford Mist} - Oxford blue with dusty blue and mist lavender
+        \item \textbf{Oxford Monochrome} - Oxford blue with charcoal and subtle violet tones
+    \end{itemize}
+    \item \textbf{Sky} themes:
+    \begin{itemize}
+        \item \textbf{Summer Skies} - Bright sky blue with sunshine yellow accents
+        \item \textbf{Twilight Skies} - Twilight blue with purple and sunset gold
+        \item \textbf{Midnight Skies} - Deep midnight blue with starlight accents
+        \item \textbf{Aurora Skies} - Northern blue with aurora green and purple
+    \end{itemize}
+    \item \textbf{Other themes}:
+    \begin{itemize}
+        \item \textbf{Vintage Rose} - Dusty rose with muted berry and peach highlights
+        \item \textbf{Emerald} - Rich emerald green with ocean blue and golden accents
+        \item \textbf{Royal Purple} - Royal purple with gold and crimson accents
+        \item \textbf{Arctic} - Arctic blue with ice blue highlights
+        \item \textbf{Autumn} - Warm sienna and burnt orange tones with cream backgrounds
+    \end{itemize}
+\end{itemize}
+
+\subsection{One-Step Theme Switching}
+The template now features a simplified theme switching system. To change both font and colour themes at once, use the \inlinecode{\\usetheme} command near the top of your main document:
+
+\begin{lstlisting}[language=TeX, caption={Using the theme switcher command}, label={lst:themeswitcher}]
+% Select your theme - first parameter is font theme, second is color theme
+\usetheme{font-theme}{color-theme}
+
+% Example: Modern fonts with Oxford Blue theme
+\usetheme{modern}{oxford-blue}
+
+% Example: Elegant fonts with Vintage Rose theme
+\usetheme{elegant}{vintage-rose}
+\end{lstlisting}
+
+The available font themes are:
+\begin{itemize}
+    \item \textbf{modern} - Contemporary look with Charter and Bera Sans (default)
+    \item \textbf{classic} - Traditional academic style with Palatino and TeX Gyre Heros
+    \item \textbf{elegant} - Refined style with EB Garamond and Source Sans Pro
+    \item \textbf{academic} - Cohesive Libertinus family for academic papers
+    \item \textbf{scientific} - STIX Two and Cabin optimised for scientific content
+    \item \textbf{professional} - Enhanced Palatino clone with Source Sans Pro for a business look
+    \item \textbf{contemporary} - Modern Fira Sans with matching mathematics support
+\end{itemize}
+
+The available colour themes are:
+\begin{itemize}
+    \item Cambridge family: \textbf{cambridge-blue} (default), \textbf{cambridge-classic}, \textbf{cambridge-forest}, \textbf{cambridge-sunset}, \textbf{cambridge-river}
+    \item Oxford family: \textbf{oxford-blue}, \textbf{oxford-mist}, \textbf{oxford-monochrome}
+    \item Sky family: \textbf{summer-skies}, \textbf{aurora-skies}, \textbf{twilight-skies}, \textbf{midnight-skies}
+    \item Other themes: \textbf{vintage-rose}, \textbf{emerald}, \textbf{royal-purple}, \textbf{arctic}, \textbf{autumn}
+\end{itemize}
+
+\subsection{Creating Custom Themes}
+You can create your own theme by defining a new theme in \inlinecode{config/colours.tex}:
+
+\begin{notetbox}
+    To add a custom colour theme, locate the "CUSTOM THEME" section in \inlinecode{config/colours.tex} and add your theme using the provided template pattern.
+    \begin{itemize}
+        \item Choose a unique theme name like \inlinecode{my-theme-name}
+        \item Define all the required colours
+        \item Use it with \inlinecode{\\usetheme\{font-theme\}\{my-theme-name\}}
+    \end{itemize}
+\end{notetbox}
+
+\begin{lstlisting}[language=TeX, caption={Custom theme definition in config/colours.tex}, label={lst:customtheme}]
+% In config/colours.tex:
+\ifdefstring{\activetheme}{my-custom-theme}{%
+    \definecolor{maincolor}{RGB}{76,40,130}       % Royal Purple
+    \definecolor{accentcolor}{RGB}{212,175,55}    % Gold
+    \definecolor{highlightcolor}{RGB}{220,20,60}  % Crimson
+    \definecolor{codebg}{RGB}{245,240,255}        % Light purple background
+    \definecolor{codefg}{RGB}{50,30,80}           % Dark purple foreground
+    \definecolor{softgray}{RGB}{200,190,210}      % Purple-tinted grey
+    \definecolor{titlepagebg}{RGB}{240,235,250}   % Soft purple background
+    \definecolor{inlinecodebg}{RGB}{235,230,250}  % Richer purple for inline code
+    \definecolor{inlinecodefg}{RGB}{90,50,150}    % Deeper royal purple for inline code
+}{}
+
+% Then in elegant-notebook.tex:
+\usetheme{modern}{my-custom-theme}
+\end{lstlisting}
+
+\subsection{Colour Selection Principles}
+When choosing colours for your academic document, consider these research-supported principles:
+
+\begin{itemize}
+    \item \textcolor{blue}{Blue tones} convey professionalism, trustworthiness and clarity—suitable for scientific and technical content
+    \item \textcolor{green!70!black}{Green shades} suggest growth, balance and environmental themes—effective for sustainability research
+    \item \textcolor{violet}{Purple hues} represent creativity, wisdom and quality—appropriate for arts and humanities
+    \item \textcolor{red}{Red accents} can emphasise critical information, but should be used sparingly in academic contexts
+\end{itemize}
+
+Aim for a balanced colour palette with sufficient contrast between text and background to maintain readability while reflecting your document's subject matter appropriately.
+
+% Section: Tables and Figures
+\section{Tables and Figures}
+The template provides elegant styling for tables and figures.
+
+\subsection{Tables}
+Tables are styled with the \inlinecode{booktabs} package for professional appearance:
+
+\begin{table}[h!]
+    \centering
+    \caption{Sample Results with Enhanced Styling}
+    \label{tab:results}
+    \begin{tabular}{@{}lrr@{}}
+        \toprule
+        Metric    & Value     & Uncertainty \\
+        \midrule
+        Mean      & $0.12$    & $\pm 0.03$  \\
+        Std. Dev. & $1.05$    & $\pm 0.02$  \\
+        Skewness  & $0.05$    & $\pm 0.01$  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Figures and Diagrams}
+The template includes support for TikZ diagrams:
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[node distance=2cm, auto, >=Latex]
+        % Define styles
+        \tikzstyle{block} = [rectangle, draw, fill=maincolor!20,
+                               text width=6em, text centered, rounded corners, minimum height=3em,
+                               drop shadow={opacity=0.7, fill=black!50}]
+        \tikzstyle{line} = [draw, -{Stealth[length=2mm, width=1.5mm]}, thick, color=accentcolor]
+
+        % Place nodes
+        \node [block] (init) {Initialise};
+        \node [block, right=of init] (process) {Process Data};
+        \node [block, right=of process] (output) {Output Results};
+
+        % Draw edges
+        \path [line] (init) -- (process);
+        \path [line] (process) -- (output);
+        \path [line, bend left=45] (output) edge node[above, midway, font=\tiny] {Feedback} (init);
+    \end{tikzpicture}
+    \caption{A styled diagram created with TikZ, showing a simple workflow.}
+    \label{fig:tikzflow}
+\end{figure}
+
+% Section: Citations
+\section{Citations and References}
+The template includes support for citations and references using BibLaTeX.
+
+You can cite references from the bibliography, such as \cite{Smith2020} or \cite{Lamport1994}.
+
+\begin{notetbox}
+    To use citations, ensure you have the \inlinecode{biber} package installed and run the full compilation process with:
+    \begin{lstlisting}[language=bash]
+./compile.sh
+    \end{lstlisting}
+    Or manually:
+    \begin{lstlisting}[language=bash]
+pdflatex elegant-notebook
+biber elegant-notebook
+pdflatex elegant-notebook
+pdflatex elegant-notebook
+    \end{lstlisting}
+\end{notetbox}
+
+\subsection{Adding References}
+Edit the \inlinecode{references.bib} file to add your own references. The template uses the author-year citation style by default.
+
+\begin{lstlisting}[language=TeX, caption={Example reference entry}, label={lst:reference}]
+@article{Smith2020,
+  author  = {Smith, John and Johnson, Sarah},
+  title   = {Recent Advances in Document Preparation Systems},
+  journal = {Journal of Documentation},
+  year    = {2020},
+  volume  = {76},
+  number  = {3},
+  pages   = {710--725},
+  doi     = {10.1000/example.doi}
+}
+\end{lstlisting}
+
+% Section: Customisation
+\section{Customisation}
+The template is designed to be highly customisable.
+
+\subsection{Creating Custom Box Types}
+You can create your own custom box types in \inlinecode{config/settings.tex}:
+
+\begin{lstlisting}[language=TeX, caption={Creating a custom box type}, label={lst:custombox}]
+\newtcolorbox{warningbox}{
+    enhanced,
+    colback=red!10,
+    colframe=red!80!black,
+    fonttitle=\sffamily\bfseries,
+    coltitle=white,
+    title=Warning,
+    left=2mm, right=2mm, top=2mm, bottom=2mm,
+    arc=2mm,
+    drop shadow,
+    breakable
+}
+\end{lstlisting}
+
+\subsection{Metadata Customisation}
+Edit \inlinecode{config/metadata.tex} to personalise your document:
+\begin{itemize}
+    \item Document title and subtitle
+    \item Author information
+    \item Institution
+    \item Email
+    \item Date
+\end{itemize}
+
+\subsection{Project Structure}
+The template has a well-organised file structure:
+
+\begin{lstlisting}[language=bash, caption={Project directory structure}, label={lst:structure}]
+elegant-notebook.tex    # Main document (this file)
+references.bib          # Bibliography file
+README.md               # Documentation
+compile.sh              # Full compilation script
+simple-compile.sh       # Basic compilation script
+LICENSE                 # MIT Licence
+config/                 # Configuration files
+    colours.tex         # Colour themes
+    metadata.tex        # Document metadata
+    settings.tex        # Package imports and settings
+    title-page.tex      # Title page layout
+\end{lstlisting}
+
+% Section: Best Practices
+\section{Best Practices}
+Here are some recommendations for using this template effectively:
+
+\begin{itemize}
+    \item Keep your document structure organised with clear section hierarchy
+    \item Use the provided environments consistently for better visual coherence
+    \item Choose a colour and font theme that matches the tone of your document
+    \item Compile with \inlinecode{./compile.sh} for the best results, especially when using references
+    \item For collaborative work, consider using version control for your LaTeX files
+\end{itemize}
+
+\begin{notetbox}
+    Remember that consistency is key to professional-looking documents. Stick to the same style choices throughout your document.
+\end{notetbox}
+
+% Section: Discussion
+\section{Conclusion}
+This template provides a flexible, professional-looking document format for academic and research work. Key benefits include:
+
+\begin{itemize}
+    \item \textbf{Consistency}: Uniform styling throughout your document
+    \item \textbf{Flexibility}: Easy customisation options
+    \item \textbf{Professional look}: Clean, modern design with enhanced readability
+    \item \textbf{Structured environments}: Ready-to-use boxes for notes, examples, and code
+    \item \textbf{British English}: Consistent use of British spelling and conventions
+\end{itemize}
+
+We hope this template helps you create beautiful, professional documents for your academic and research needs.
+
+% Section: References
+\section{References}
+\printbibliography[heading=none]
+
+\end{document} 

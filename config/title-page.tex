@@ -1,0 +1,55 @@
+% Elegant Notebook - Title Page
+% This file defines the layout of the title page
+
+\begin{titlepage}
+    \centering
+    \begin{tikzpicture}[remember picture, overlay]
+        % Background gradient or pattern - slightly lighter background
+        \fill[maincolor!8] (current page.south west) rectangle (current page.north east);
+        
+        % Add subtle pattern
+        \foreach \x in {0,1,...,40} {
+            \foreach \y in {0,1,...,60} {
+                \filldraw[maincolor!5] (\x/2,\y/2) circle (0.5pt);
+            }
+        }
+        
+        % Enhanced decorative frame
+        \draw[maincolor!60, line width=0.8mm, rounded corners=8pt]
+            ([xshift=10mm, yshift=-10mm]current page.north west) rectangle 
+            ([xshift=-10mm, yshift=10mm]current page.south east);
+        
+        % Accent line at top
+        \draw[accentcolor, line width=2.5pt]
+            ([xshift=30mm, yshift=-25mm]current page.north west) -- 
+            ([xshift=-30mm, yshift=-25mm]current page.north east);
+    \end{tikzpicture}
+
+    \vspace*{2cm} % More space at top
+
+    % Institution with slightly larger font
+    {\sffamily\normalsize\textcolor{maincolor!80!black}{\notebookinstitution}}\\[1cm]
+    
+    % Decorative rule
+    {\color{accentcolor}\rule{0.6\linewidth}{1.2pt}}\\[2.0cm]
+
+    % Significantly larger title
+    {\sffamily\fontsize{28}{34}\selectfont\bfseries\color{maincolor}\notebooktitle}\\[1.5cm]
+    
+    % Larger subtitle
+    {\sffamily\fontsize{16}{20}\selectfont\color{accentcolor}\notebooksubtitle}\\[3.0cm]
+
+    % Author information with increased size
+    {\sffamily\Large\bfseries\color{maincolor!90!black}\notebookauthor}\\[0.8cm]
+    {\sffamily\normalsize\href{mailto:\notebookemail}{\textcolor{accentcolor}{\notebookemail}}}\\[0.8cm]
+    {\sffamily\normalsize\color{maincolor!70!black}\notebookdate}\\[2.5cm]
+
+    % Description
+    {\sffamily\large\color{maincolor!90!black}A beautifully crafted notebook template for academic and research work}\par
+    
+    \vfill
+    
+    % Footer
+    {\sffamily\small\color{maincolor!70!black}Created with \LaTeX\ using the Elegant Notebook Template}\par
+    \vspace*{1cm}
+\end{titlepage} 

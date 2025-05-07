@@ -1,0 +1,235 @@
+% Elegant Notebook - Settings File
+% This file contains all the package imports and configuration settings
+
+% Load custom metadata
+\input{config/metadata}
+
+% Load custom colour scheme
+\input{config/colours}
+
+% Setting up geometry for balanced margins
+\usepackage[margin=1in, headheight=14pt]{geometry} % Increased headheight to prevent fancyhdr warnings
+
+% Including essential packages for language, encoding, and functionality
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel} % British English spelling and conventions
+\usepackage{csquotes} % Recommended when using babel with biblatex
+
+% Adding mathematical packages first to avoid conflicts
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- FONT SELECTION ---
+% Font theme is now set using \usetheme in the main document
+% \fonttheme is already defined by the theme system
+
+% Font packages
+\usepackage{microtype} % Improved typography for all fonts
+\usepackage[varqu,varl]{inconsolata} % Better monospace base font
+\usepackage{etoolbox} % Required for string comparison
+
+% Save definition of \Bbbk from amssymb to avoid redefinition errors
+\let\amssymbBbbk\Bbbk
+
+% Modern theme (default)
+\ifx\fonttheme\@empty\def\fonttheme{modern}\fi
+\ifdefstring{\fonttheme}{modern}{%
+    \usepackage{charter} % Serif
+    \usepackage[scaled=0.85]{berasans} % Sans-serif
+    \usepackage{newtxmath} % Compatible mathematics font
+}{} % End modern theme
+
+% Restore original \Bbbk definition
+\let\Bbbk\amssymbBbbk
+
+% Classic theme
+\ifdefstring{\fonttheme}{classic}{%
+    \usepackage{palatino} % Palatino for serif
+    \usepackage[scale=0.9]{tgheros} % TeX Gyre Heros for sans-serif
+    \usepackage{newpxmath} % Palatino-compatible mathematics
+}{} % End classic theme
+
+% Elegant theme
+\ifdefstring{\fonttheme}{elegant}{%
+    \usepackage{ebgaramond} % Garamond for elegant serif
+    \usepackage[scale=0.85]{sourcesanspro} % Source Sans Pro
+    \usepackage{newpxmath} % Compatible math font
+}{} % End elegant theme
+
+% Academic theme
+\ifdefstring{\fonttheme}{academic}{%
+    \usepackage{libertinus} % Libertinus family (serif, sans, and maths)
+    \usepackage{libertinust1math} % Matching maths font
+}{} % End academic theme
+
+% Scientific theme
+\ifdefstring{\fonttheme}{scientific}{%
+    \usepackage{stix2} % STIX Two for scientific documents
+    \usepackage[scale=0.9]{cabin} % Cabin for sans-serif
+    % STIX2 already includes mathematics support
+}{} % End scientific theme
+
+% Professional theme
+\ifdefstring{\fonttheme}{professional}{%
+    \usepackage{newpxtext} % Palatino clone with enhanced features
+    \usepackage[scale=0.92]{sourcesanspro} % Source Sans Pro for headings
+    \usepackage{newpxmath} % Matching mathematics
+}{} % End professional theme
+
+% Contemporary theme
+\ifdefstring{\fonttheme}{contemporary}{%
+    \usepackage[sfdefault,scaled=.85]{FiraSans} % Modern sans-serif
+    \usepackage{newtxsf} % Matching sans-serif maths
+}{} % End contemporary theme
+
+% To switch themes, change the \fonttheme value above before including this file
+
+% Setting up hyperref for clickable links with subtle styling
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor, % Use accent colour for links
+    urlcolor=accentcolor,
+    citecolor=accentcolor,
+    pdfborderstyle={/S/U/W 0.5}, % Thinner underline
+    % PDF metadata properties
+    pdftitle={\notebooktitle},
+    pdfauthor={\notebookauthor},
+    pdfsubject={\notebooksubtitle},
+    pdfcreator={LaTeX with Elegant Notebook Template},
+    pdfproducer={LaTeX}
+}
+
+% Enhancing lists with custom spacing and symbols
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, itemsep=0.5ex, topsep=0.5ex, label=\textcolor{accentcolor}{\textbullet}} % Custom bullet
+\setlist[enumerate]{leftmargin=*, itemsep=0.5ex, topsep=0.5ex, label=\textcolor{accentcolor}{\arabic*.}}
+
+% Adding line spacing for readability
+\usepackage{setspace}
+\setstretch{1.15} % Slightly reduced for a denser but still readable look
+
+% Including graphics, table, and caption support
+\usepackage{graphicx}
+\usepackage{booktabs} % For professional tables
+\usepackage{caption}
+\captionsetup{font={small,sf}, labelfont={bf,color=accentcolor}, skip=7pt, singlelinecheck=false, format=hang}
+
+% Configuring inline code and environments with tcolorbox
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{skins,breakable,hooks} % Load tcolorbox libraries for more features
+
+% Improved inline code style
+\newtcbox{\inlinecode}{
+    nobeforeafter,
+    colback=inlinecodebg,
+    colframe=inlinecodefg!50,
+    boxrule=0.2pt,
+    arc=1.0mm,
+    left=2pt, right=2pt, top=1.5pt, bottom=1.5pt,
+    boxsep=0.7pt,
+    on line,
+    fontupper=\small\ttfamily\color{inlinecodefg},
+    enlarge left by=0mm,
+    enlarge right by=0mm
+}
+
+% --- ENHANCED TCOLORBOX STYLES ---
+\newtcolorbox{notetbox}{
+    enhanced, % Use enhanced features
+    colback=maincolor!10,
+    colframe=maincolor,
+    fonttitle=\sffamily\bfseries,
+    coltitle=white, % White text on coloured background
+    title=Note,
+    left=2mm, right=2mm, top=2mm, bottom=2mm,
+    arc=2mm,
+    drop shadow, % Subtle drop shadow
+    breakable % Allow box to break across pages
+}
+
+\newtcolorbox{exampletbox}{
+    enhanced,
+    colback=accentcolor!10,
+    colframe=accentcolor,
+    fonttitle=\sffamily\bfseries,
+    coltitle=white,
+    title=Example,
+    left=2mm, right=2mm, top=2mm, bottom=2mm,
+    arc=2mm,
+    drop shadow,
+    breakable
+}
+
+% Adding support for code listings
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small\color{codefg},
+    backgroundcolor=\color{codebg},
+    frame=single, % Complete border
+    framerule=0.5pt,
+    rulecolor=\color{maincolor!50},
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny\color{maincolor!70!black},
+    keywordstyle=\color{accentcolor}\bfseries,
+    commentstyle=\color{maincolor!60!black}\itshape,
+    stringstyle=\color{highlightcolor!90!black}, % Style for strings
+    identifierstyle=\color{codefg}, % Style for identifiers
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    captionpos=b, % Position of the caption (bottom)
+    aboveskip=1.5em,
+    belowskip=1.5em,
+    extendedchars=true,
+    xleftmargin=18pt, % Increase left margin to ensure enough space for line numbers
+    xrightmargin=8pt, % Increase right margin
+    numbersep=8pt, % Increase space between line numbers and code
+    framexleftmargin=15pt, % Ensure appropriate left frame margin
+    framexrightmargin=5pt, % Right frame margin
+    framextopmargin=6pt, % Top internal padding
+    framexbottommargin=6pt, % Bottom internal padding
+    resetmargins=true, % Reset margins
+    literate=% Add specific character renderings if needed
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
+
+% Adding support for simple diagrams with TikZ
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, shadows, patterns} % More TikZ libraries
+
+% --- ENHANCED SECTION STYLING ---
+\usepackage{titlesec}
+\titleformat{\section}
+    {\sffamily\Large\bfseries\color{maincolor}}
+    {\thesection}{0.8em}{}
+    [\color{maincolor!30}\titlerule] % Adds a rule below the title
+\titleformat{\subsection}
+    {\sffamily\large\bfseries\color{accentcolor}} % Use accent colour
+    {\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}
+    {\sffamily\normalsize\bfseries\color{accentcolor!80!black}}
+    {\thesubsubsection}{0.8em}{}
+
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus .8ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.5ex plus .6ex minus .2ex}{0.8ex plus .2ex}
+
+% Setting up bibliography with biblatex
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex} % Use numeric style for numbered references
+\addbibresource{references.bib} % Reference file
+
+% Creating a custom header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\textcolor{maincolor!90!black}{\notebooktitle}}
+\fancyhead[R]{\sffamily\small\textcolor{maincolor!90!black}{\nouppercase{\leftmark}}} % Section in header
+\fancyfoot[C]{\sffamily\small\textcolor{maincolor!90!black}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt} % Remove footer rule for a cleaner look
+\renewcommand{\headrule}{\color{maincolor!70}\hrule} 

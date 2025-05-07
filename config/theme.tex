@@ -1,0 +1,15 @@
+% Elegant Notebook - Theme Switcher
+% This file provides a one-step solution for changing both color and font themes
+
+% Define the theme switcher command
+\newcommand{\usetheme}[2]{%
+    % Set font theme
+    \def\fonttheme{#1}%
+    
+    % Set color theme
+    \def\activetheme{#2}%
+}
+
+% Default theme if not specified elsewhere
+\providecommand{\fonttheme}{modern}
+\providecommand{\activetheme}{cambridge-blue} 
