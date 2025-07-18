@@ -17,7 +17,7 @@ echo "-------------------------------------------------------------------"
 
 # Initial pdflatex run
 echo "First pdflatex run..."
-pdflatex "$DOCUMENT" || { echo "Error in first pdflatex run. Aborting."; exit 1; }
+pdflatex -interaction=nonstopmode "$DOCUMENT" || { echo "Error in first pdflatex run. Aborting."; exit 1; }
 
 # Biber run for bibliography
 echo "Running biber for bibliography processing..."
@@ -25,11 +25,11 @@ biber "$DOCUMENT" || { echo "Error in biber run. Aborting."; exit 1; }
 
 # Second pdflatex run to incorporate bibliography
 echo "Second pdflatex run..."
-pdflatex "$DOCUMENT" || { echo "Error in second pdflatex run. Aborting."; exit 1; }
+pdflatex -interaction=nonstopmode "$DOCUMENT" || { echo "Error in second pdflatex run. Aborting."; exit 1; }
 
 # Final pdflatex run to resolve all references
 echo "Final pdflatex run..."
-pdflatex "$DOCUMENT" || { echo "Error in final pdflatex run. Aborting."; exit 1; }
+pdflatex -interaction=nonstopmode "$DOCUMENT" || { echo "Error in final pdflatex run. Aborting."; exit 1; }
 
 # Clean up auxiliary files (optional)
 echo "Cleaning up auxiliary files..."

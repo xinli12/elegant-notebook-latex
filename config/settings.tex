@@ -21,10 +21,8 @@
 \usepackage{amssymb}
 
 % --- FONT SELECTION ---
-% Font theme is now set using \usetheme in the main document
-% \fonttheme is already defined by the theme system
-
-% Font packages
+% The font theme is now set using the \usetheme command in elegant-notebook.tex
+% \fonttheme is defined by the theme system, so we just need to use it
 \usepackage{microtype} % Improved typography for all fonts
 \usepackage[varqu,varl]{inconsolata} % Better monospace base font
 \usepackage{etoolbox} % Required for string comparison
@@ -83,7 +81,15 @@
     \usepackage{newtxsf} % Matching sans-serif maths
 }{} % End contemporary theme
 
-% To switch themes, change the \fonttheme value above before including this file
+% --- FONT SHOWCASE COMMANDS ---
+% These commands are for showcasing the font themes in the document.
+\newcommand{\showcasemodern}[1]{{\fontfamily{bch}\selectfont #1}}
+\newcommand{\showcaseclassic}[1]{{\fontfamily{ppl}\selectfont #1}}
+\newcommand{\showcaseelegant}[1]{{\fontfamily{EBGaramond-LF}\selectfont #1}}
+\newcommand{\showcaseacademic}[1]{{\fontfamily{LibertinusT1}\selectfont #1}}
+\newcommand{\showcasescientific}[1]{{\fontfamily{STIXTwoText-TLF}\selectfont #1}}
+\newcommand{\showcaseprofessional}[1]{{\fontfamily{pxr}\selectfont #1}}
+\newcommand{\showcasecontemporary}[1]{{\fontfamily{FiraSans-TLF}\selectfont #1}}
 
 % Setting up hyperref for clickable links with subtle styling
 \usepackage{hyperref}
@@ -136,29 +142,27 @@
 }
 
 % --- ENHANCED TCOLORBOX STYLES ---
-\newtcolorbox{notetbox}{
+\newtcolorbox{notetbox}[1][Note]{
     enhanced, % Use enhanced features
     colback=maincolor!10,
     colframe=maincolor,
     fonttitle=\sffamily\bfseries,
     coltitle=white, % White text on coloured background
-    title=Note,
+    title=#1,
     left=2mm, right=2mm, top=2mm, bottom=2mm,
-    arc=2mm,
-    drop shadow, % Subtle drop shadow
+    arc=1mm,
     breakable % Allow box to break across pages
 }
 
-\newtcolorbox{exampletbox}{
+\newtcolorbox{exampletbox}[1][Example]{
     enhanced,
     colback=accentcolor!10,
     colframe=accentcolor,
     fonttitle=\sffamily\bfseries,
     coltitle=white,
-    title=Example,
+    title=#1,
     left=2mm, right=2mm, top=2mm, bottom=2mm,
     arc=2mm,
-    drop shadow,
     breakable
 }
 
@@ -204,6 +208,14 @@
 
 % --- ENHANCED SECTION STYLING ---
 \usepackage{titlesec}
+
+% Chapter styling
+\titleformat{\chapter}[display]
+    {\sffamily\huge\bfseries\color{maincolor}}
+    {\textcolor{accentcolor}{\chaptertitlename\ \thechapter}}{1ex}
+    {\vspace{0.5ex}\color{maincolor}}
+    [\vspace{0.5ex}{\color{maincolor!40}\titlerule[1.5pt]}]
+
 \titleformat{\section}
     {\sffamily\Large\bfseries\color{maincolor}}
     {\thesection}{0.8em}{}
@@ -215,12 +227,13 @@
     {\sffamily\normalsize\bfseries\color{accentcolor!80!black}}
     {\thesubsubsection}{0.8em}{}
 
+\titlespacing*{\chapter}{0pt}{0pt}{3ex plus 1ex}
 \titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{2ex plus .8ex minus .2ex}{1ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{1.5ex plus .6ex minus .2ex}{0.8ex plus .2ex}
 
 % Setting up bibliography with biblatex
-\usepackage[backend=biber, style=numeric, sorting=none]{biblatex} % Use numeric style for numbered references
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{references.bib} % Reference file
 
 % Creating a custom header and footer
